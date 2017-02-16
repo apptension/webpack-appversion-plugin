@@ -1,0 +1,26 @@
+{
+  "name": "webpack-appversion-plugin",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "babel source --presets babel-preset-es2015 --out-dir dist",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apptension/webpack-appversion-plugin.git"
+  },
+  "author": "Apptension",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apptension/webpack-appversion-plugin/issues"
+  },
+  "homepage": "https://github.com/apptension/webpack-appversion-plugin#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.2.1",
+    "webpack-core": "^0.6.9"
+  }
+}
