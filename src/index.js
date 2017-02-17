@@ -12,10 +12,6 @@ export default class AppversionPlugin {
   }
 
   apply(compiler) {
-    if (!this.version) {
-      return;
-    }
-
     compiler.plugin('emit', (compilation, callback) => {
       const entryChunks = compilation.getStats().toJson().chunks;
 

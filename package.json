@@ -1,9 +1,9 @@
 {
   "name": "webpack-appversion-plugin",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel source --presets babel-preset-es2015 --out-dir dist",
+    "build": "babel src --presets babel-preset-es2015 --out-dir dist",
     "prepublish": "npm run build"
   },
   "repository": {
