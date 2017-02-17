@@ -1,10 +1,8 @@
-Webpack Appversion Plugin
-
-===================
+# Webpack Appversion Plugin
 
 This is a [webpack](http://webpack.github.io/) plugin that automatically displays version number in web application
 
-Installation
+### Installation
 ------------
 Install the plugin with npm:
 ```shell
@@ -16,7 +14,7 @@ or Yarn:
 $ yarn add webpack-appversion-plugin
 ```
 
-Basic Usage
+### Basic Usage
 -----------
 The plugin will add version box to your application by prepending code to given entry points
 
@@ -39,7 +37,7 @@ var webpackConfig = {
 };
 ```
 
-Configuration
+### Configuration
 -------------
 You can pass configuration options to `WebpackAppversionPlugin`.
 Allowed values are as follows:
