@@ -1,4 +1,5 @@
 Webpack Appversion Plugin
+
 ===================
 
 This is a [webpack](http://webpack.github.io/) plugin that automatically displays version number in web application
