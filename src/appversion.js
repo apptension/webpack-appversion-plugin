@@ -27,11 +27,22 @@ class Appversion {
 
   initialize() {
     this.createWrapper();
+
     document.body.appendChild(this.wrapper);
 
-    if (this.isOpen) {
-      this.open();
+    this.transitionOffset = this.wrapper.getBoundingClientRect().right - this.textElement.getBoundingClientRect().left;
+
+    if (!this.isOpen) {
+      this.close();
     }
+
+    requestAnimationFrame(() => {
+      this.wrapper.style.msTransition = 'transform 0.2s ease-in-out';
+      this.wrapper.style.webkitTransition = 'transform 0.2s ease-in-out';
+      this.wrapper.style.MozTransition = 'transform 0.2s ease-in-out';
+      this.wrapper.style.Otransition = 'transform 0.2s ease-in-out';
+      this.wrapper.style.transition = 'transform 0.2s ease-in-out';
+    });
   }
 
   setStyle(element, style) {
@@ -60,12 +71,22 @@ class Appversion {
 
   open() {
     this.isOpen = true;
-    this.wrapper.innerHTML = `${this.version} build on ${this.date} [-]`;
+    this.wrapper.style.msTransform = `translateX(0)`;
+    this.wrapper.style.webkitTransform = `translateX(0)`;
+    this.wrapper.style.MozTransform = `translateX(0)`;
+    this.wrapper.style.OTransform = `translateX(0)`;
+    this.wrapper.style.transform = `translateX(0)`;
+    this.toggleButton.innerHTML = '[-]';
   }
 
   close() {
     this.isOpen = false;
-    this.wrapper.innerHTML = '[+]';
+    this.wrapper.style.msTransform = `translateX(${this.transitionOffset}px)`;
+    this.wrapper.style.webkitTransform = `translateX(${this.transitionOffset}px)`;
+    this.wrapper.style.MozTransform = `translateX(${this.transitionOffset}px)`;
+    this.wrapper.style.OTransform = `translateX(${this.transitionOffset}px)`;
+    this.wrapper.style.transform = `translateX(${this.transitionOffset}px)`;
+    this.toggleButton.innerHTML = '[+]';
   }
 
   createWrapper() {
@@ -79,7 +100,16 @@ class Appversion {
       fontSize: '14px',
       cursor: 'pointer',
     }, THEME[this.theme], this.wrapperStyle));
-    this.wrapper.innerHTML = '[+]';
+
+    this.toggleButton = document.createElement('span');
+    this.toggleButton.innerHTML = '[-]';
+    this.toggleButton.style.marginRight = '5px';
+    this.wrapper.appendChild(this.toggleButton);
+
+    this.textElement = document.createElement('span');
+    this.textElement.innerHTML = `${this.version} build on ${this.date}`;
+    this.wrapper.appendChild(this.textElement);
+
     this.wrapper.onclick = this.toggle.bind(this);
   }
 }
