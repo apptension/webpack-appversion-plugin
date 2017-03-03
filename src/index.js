@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import ConcatSource from 'webpack-core/lib/ConcatSource';
 
-export default class AppversionPlugin {
+class AppversionPlugin {
   constructor({ entries, version, theme = 'light', wrapperStyle = {}, isOpen = false}) {
     this.entries = entries;
     this.version = version;
@@ -78,3 +78,5 @@ export default class AppversionPlugin {
     compilation.assets[fileName] = new ConcatSource(template, '\n', compilation.assets[fileName]);
   }
 }
+
+module.exports = AppversionPlugin;
