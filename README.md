@@ -44,7 +44,7 @@ Allowed values are as follows:
 
 - `entries`: an array of webpack's entry points which should contain plugin's code
 - `version`: a string that will be displayed as version
-- `theme`: `'light' | 'dark'` **(default: `'light'`)** color shceme of version box
+- `theme`: `'light' | 'dark'` **(default: `'light'`)** color scheme of version box
 - `wrapperStyle`: `{}` allows to overwrite version box styles
 - `isOpen`: `true | false` **(default: `false`)** determines whether box should be displayed open or closed as default
 
