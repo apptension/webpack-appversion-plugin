@@ -1,6 +1,16 @@
 import path from 'path';
 import fs from 'fs';
-import ConcatSource from 'webpack-core/lib/ConcatSource';
+let ConcatSource = null;
+
+try {
+  require.resolve('webpack-core/lib/ConcatSource'); // webpack 1
+  ConcatSource = require('webpack-core/lib/ConcatSource')
+} catch (e) {}
+
+try {
+  require.resolve('webpack-sources/lib/ConcatSource'); // webpack 2
+  ConcatSource = require('webpack-sources/lib/ConcatSource')
+} catch (e) {}
 
 class AppversionPlugin {
   constructor({ entries, version, theme = 'light', wrapperStyle = {}, isOpen = false}) {
