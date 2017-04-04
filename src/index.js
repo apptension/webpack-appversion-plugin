@@ -66,7 +66,7 @@ class AppversionPlugin {
   appendScript(compilation, fileName) {
     const scriptTemplate = fs.readFileSync(path.join(__dirname, 'appversion.js'), { encoding: 'utf8' });
     const scriptOptionsTemplate = `
-      window.onload = function() {
+      window.addEventListener('load', function(){
         var appversion = new Appversion({
           version: '${this.version}',
           date: '${this.getCurrentDate()}',
@@ -75,7 +75,7 @@ class AppversionPlugin {
           isOpen: ${this.isOpen}
         });
         appversion.initialize();
-      };
+      });
     `;
 
     const template = `
