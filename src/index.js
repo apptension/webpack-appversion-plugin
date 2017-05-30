@@ -57,7 +57,7 @@ class AppversionPlugin {
     const minutes = this.leftPadDate(currentDate.getMinutes());
     const seconds = this.leftPadDate(currentDate.getSeconds());
     const day = this.leftPadDate(currentDate.getDate());
-    const month = this.leftPadDate(currentDate.getMonth());
+    const month = this.leftPadDate(currentDate.getMonth() + 1);
     const year = currentDate.getFullYear();
 
     return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
